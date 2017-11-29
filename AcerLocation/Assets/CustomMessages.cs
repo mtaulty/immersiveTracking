@@ -22,6 +22,7 @@ namespace HoloToolkit.Sharing.Tests
         {
             HeadTransform = MessageID.UserMessageIDStart,
             RemoteHeadsetPosition,
+            RemoteHoloLensPosition,
             Max
         }
 
@@ -139,13 +140,13 @@ namespace HoloToolkit.Sharing.Tests
                     MessageChannel.Avatar);
             }
         }
-        public void SendRemoteHeadsetPosition(Vector3 position, Vector3 direction)
+        public void SendRemotePositionDirection(byte messageId, Vector3 position, Vector3 direction)
         {
             // If we are connected to a session, broadcast our head info
             if (serverConnection != null && serverConnection.IsConnected())
             {
                 // Create an outgoing network message to contain all the info we want to send
-                NetworkOutMessage msg = CreateMessage((byte)TestMessageID.RemoteHeadsetPosition);
+                NetworkOutMessage msg = CreateMessage(messageId);
 
                 AppendVector3(msg, position);
                 AppendVector3(msg, direction);
@@ -158,7 +159,14 @@ namespace HoloToolkit.Sharing.Tests
                     MessageChannel.Avatar);
             }
         }
-
+        public void SendRemoteHeadsetPosition(Vector3 position, Vector3 direction)
+        {
+            this.SendRemotePositionDirection((byte)TestMessageID.RemoteHeadsetPosition, position, direction);
+        }
+        public void SendRemoteHoloLensPosition(Vector3 position, Vector3 direction)
+        {
+            this.SendRemotePositionDirection((byte)TestMessageID.RemoteHoloLensPosition, position, direction);
+        }
         protected override void OnDestroy()
         {
             base.OnDestroy();

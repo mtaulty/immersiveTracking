@@ -278,6 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1191f523ce0bf214bbec19b29bc4730d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headsetPrefab: {fileID: 1177916766409166, guid: 11f07076b0a1c3842a3391e645b86d28,
+    type: 2}
 --- !u!114 &893779338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +566,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headsetPrefab: {fileID: 1177916766409166, guid: 11f07076b0a1c3842a3391e645b86d28,
-    type: 2}
-  axisMarkerPrefab: {fileID: 1445012556383008, guid: 03aef297b849e08499f1ab1c20ff2126,
     type: 2}
